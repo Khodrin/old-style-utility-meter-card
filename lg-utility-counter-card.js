@@ -81,6 +81,14 @@ class LGUtilityCounterCard extends HTMLElement {
         }
     }
 
+	 doEditor() {
+        this._elements.editor = document.createElement("form");
+        this._elements.editor.innerHTML = `
+            <div class="row"><label class="label" for="header">Header:</label><input class="value" id="header"></input></div>
+            <div class="row"><label class="label" for="entity">Entity:</label><input class="value" id="entity"></input></div>
+        `;
+    }
+
     doStyle() {
         this._elements.style = document.createElement("style");
         this._elements.style.textContent = `
