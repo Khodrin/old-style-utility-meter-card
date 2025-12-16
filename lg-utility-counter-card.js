@@ -8,8 +8,13 @@ class LGUtilityCounterCard extends HTMLElement {
     _isAttached = false;
 
     // lifecycle
+	constructor() {
+        super();
+        console.log("LGUtilityCounterCard.constructor()")
+        this.doStyle();
+        this.doCard();
+    }
     
-
     setConfig(config) {
         console.log("LGUtilityCounterCard.setConfig()")
         this._config = config;
@@ -21,13 +26,6 @@ class LGUtilityCounterCard extends HTMLElement {
         }
         this.doCheckConfig();
         this.doUpdateConfig();
-    }
-
-	constructor() {
-        super();
-        console.log("LGUtilityCounterCard.constructor()")
-        this.doStyle();
-        this.doCard();
     }
 
     set hass(hass) {
@@ -208,9 +206,7 @@ class LGUtilityCounterCard extends HTMLElement {
 				<div class="lg-utility-counter-main-div">
 					<div class="lg-utility-counter-red-bg">
 					</div><div class="lg-utility-counter-grey-bg">kWh</div>`;
-		var total_digits = this._config.digits_number + this._config.decimals_number;
-		console.log("Total digits 1: " + total_digits);
-		for (var d = 0; d < total_digits; d++) {
+		for (var d = 0; d < 15; d++) {
 			html_content += `<span class="lg-utility-counter-digit-window">
 						<span class="lg-utility-counter-digit-text" id="lguc-digit-` + d + `">0</span>
 					</span>`;
@@ -266,18 +262,19 @@ class LGUtilityCounterCard extends HTMLElement {
                 this._elements.toggle.classList.add("tcvj-toggle--on");
             }*/
             //this._elements.value.textContent = this.getState().state;
-			
-			var cntr_val = this.getState().state;
-			var cntr_str = String(Math.round(cntr_val * 100)).padStart(8, '0');
-			var dig_val;
 
 			var total_digits = this._config.digits_number + this._config.decimals_number;
 			console.log("Total digits 1: " + total_digits);
+			
+			var cntr_val = this.getState().state;
+			var cntr_str = String(Math.round(cntr_val * 100)).padStart(total_digits, '0');
+			var dig_val;
+			
 			for (var d = 0; d < total_digits; d++) {
 				dig_val = cntr_str.substring(d, d + 1);
-				//this._elements.digit[d].src = "/local/community/lg-utility-counter-card/imgs/" + dig_val + ".png";
 				this._elements.digit[d].innerHTML = dig_val;
 			}
+			//hide the rest of digits
 			
 			
             this._elements.error.classList.add("lguc-error--hidden");
