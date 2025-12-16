@@ -300,7 +300,8 @@ class LGUtilityCounterCard extends HTMLElement {
           name: "",
           schema: [
             { name: "name", selector: { text: {} } },
-			{ name: "digits_number", selector: { number: {} } },
+			{ name: "digits_number", selector: { number: { min: 0, max: 10, step: 1, mode: "slider" } } },
+			{ name: "decimals_number", selector: { number: { min: 0, max: 5, step: 1, mode: "slider" } } },
             {
               name: "icon",
               selector: {
@@ -325,6 +326,10 @@ class LGUtilityCounterCard extends HTMLElement {
             return "This text describes the function of the entity selector";
           case "unit":
             return "The unit of measurement for this card";
+		  case "digits_number":
+            return "The number of digits to the left of decimal point. (0 - 10, 0 = auto)";
+		  case "decimals_number":
+            return "The number of digits to the right of decimal point. (0 - 5, 0 = auto from entity's precision)";
         }
         return undefined;
       },
