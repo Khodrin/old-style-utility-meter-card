@@ -201,12 +201,6 @@ class LGUtilityCounterCard extends HTMLElement {
 
     doCard() {
         this._elements.card = document.createElement("ha-card");
-        
-		setConfig(config) {
-        //console.log("LGUtilityCounterCard.setConfig()")
-        	this._config = config;
-		}
-			
 		var html_content = `
 			<div class="card-content">
 				<p class="lguc-error lguc-error--hidden">
