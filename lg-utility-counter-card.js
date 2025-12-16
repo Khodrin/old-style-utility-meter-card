@@ -208,6 +208,7 @@ class LGUtilityCounterCard extends HTMLElement {
 					<div class="lg-utility-counter-red-bg">
 					</div><div class="lg-utility-counter-grey-bg">kWh</div>`;
 		var total_digits = this._config.digits_number + this._config.decimals_number;
+		console.log("Total digits 1: " + total_digits);
 		for (var d = 0; d < total_digits; d++) {
 			html_content += `<span class="lg-utility-counter-digit-window">
 						<span class="lg-utility-counter-digit-text" id="lguc-digit-` + d + `">0</span>
@@ -268,8 +269,10 @@ class LGUtilityCounterCard extends HTMLElement {
 			var cntr_val = this.getState().state;
 			var cntr_str = String(Math.round(cntr_val * 100)).padStart(8, '0');
 			var dig_val;
-			
-			for (var d = 0; d < 8; d++) {
+
+			var total_digits = this._config.digits_number + this._config.decimals_number;
+			console.log("Total digits 1: " + total_digits);
+			for (var d = 0; d < total_digits; d++) {
 				dig_val = cntr_str.substring(d, d + 1);
 				//this._elements.digit[d].src = "/local/community/lg-utility-counter-card/imgs/" + dig_val + ".png";
 				this._elements.digit[d].innerHTML = dig_val;
