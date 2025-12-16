@@ -295,26 +295,20 @@ class LGUtilityCounterCard extends HTMLElement {
     return {
       schema: [
         { name: "entity", required: true, selector: { entity: {} } },
+        { name: "name", selector: { text: {} } },
+		{ name: "digits_number", selector: { number: { min: 0, max: 10, step: 1, mode: "slider" } } },
+		{ name: "decimals_number", selector: { number: { min: 0, max: 5, step: 1, mode: "slider" } } },
         {
-          type: "grid",
-          name: "",
-          schema: [
-            { name: "name", selector: { text: {} } },
-			{ name: "digits_number", selector: { number: { min: 0, max: 10, step: 1, mode: "slider" } } },
-			{ name: "decimals_number", selector: { number: { min: 0, max: 5, step: 1, mode: "slider" } } },
-            {
-              name: "icon",
-              selector: {
-                icon: {},
-              },
-              context: {
-                icon_entity: "entity",
-              },
+            name: "icon",
+            selector: {
+              icon: {},
             },
-            { name: "unit", selector: { text: {} } },
-            { name: "theme", selector: { theme: {} } },
-          ],
+            context: {
+              icon_entity: "entity",
+            },
         },
+        { name: "unit", selector: { text: {} } },
+        { name: "theme", selector: { theme: {} } },
       ],
       computeLabel: (schema) => {
         if (schema.name === "icon") return "Special Icon";
