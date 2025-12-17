@@ -267,6 +267,8 @@ class LGUtilityCounterCard extends HTMLElement {
             }*/
             //this._elements.value.textContent = this.getState().state;
 
+			var cntr_val = this.getState().state;
+			
 			var total_digits_left = this._config.digits_number;
 			var total_digits_right = this._config.decimals_number;
 
@@ -276,15 +278,13 @@ class LGUtilityCounterCard extends HTMLElement {
 			}
 
 			if (total_digits_right == 0) {	//auto
-				const defaultPrecision = this.getState().attributes.default_precision;
+				const defaultPrecision = this.getState().attributes.precision;
 				console.log(defaultPrecision);
 				//total_digits_right = String(parseInt(cntr_val)).length;
 				if (total_digits_right > 5) {total_digits_right = 5;}
 			}
 			
 			var total_digits = total_digits_left + total_digits_right;
-		
-			var cntr_val = this.getState().state;
 			
 			var cntr_str_left = String(parseInt(cntr_val)).padStart(total_digits_left, '0');	//add leading zeros
 			cntr_str_left = cntr_str_left.slice(-total_digits_left);		// cut the beginning of the string if it's longer than required number of digits
@@ -320,9 +320,9 @@ class LGUtilityCounterCard extends HTMLElement {
     }
 
     // configuration defaults
-    static getStubConfig() {
+    /*static getStubConfig() {
         return { entity: "sun.sun" }
-    }
+    }*/
 
 	static getConfigForm() {
     return {
@@ -345,11 +345,6 @@ class LGUtilityCounterCard extends HTMLElement {
       ],
       computeLabel: (schema) => {
         if (schema.name === "icon") return "Special Icon";
-		if (schema.name === "unit") {
-			//const unitOfMeasurement = this.getState().attributes.unit_of_measurement;
-			const unitOfMeasurement = "kWh";
-			return unitOfMeasurement;
-		}
         return undefined;
 		
 		  
