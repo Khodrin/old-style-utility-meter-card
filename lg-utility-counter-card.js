@@ -216,7 +216,8 @@ class LGUtilityCounterCard extends HTMLElement {
         //this._elements.topic = card.querySelector(".lguc-dt")
         //this._elements.toggle = card.querySelector(".tcvj-toggle")
         //this._elements.value = card.querySelector(".tcvj-value")
-	
+
+		this._elements.digit_window = card.querySelectorAll(".lg-utility-counter-digit-window");
 		this._elements.digit = card.querySelectorAll(".lg-utility-counter-digit-text");
 		this._elements.redbg = card.querySelector(".lg-utility-counter-red-bg");
 		this._elements.greybg = card.querySelector(".lg-utility-counter-grey-bg");
@@ -260,11 +261,11 @@ class LGUtilityCounterCard extends HTMLElement {
 			for (var d = 0; d < total_digits; d++) {
 				dig_val = cntr_str.substring(d, d + 1);
 				this._elements.digit[d].innerHTML = dig_val;
-				this._elements.digit[d].style.display = "inline-block";
+				this._elements.digit_window[d].style.display = "inline-block";
 			}
 			//hide the rest of digits
 			for (var d = total_digits; d < 15; d++) {
-				this._elements.digit[d].style.display = "none";
+				this._elements.digit_window[d].style.display = "none";
 			}
 			this._elements.redbg.style.left = ((30 * this._config.digits_number) + 5) + "px"
 			this._elements.greybg.style.left = ((30 * this._config.digits_number) + 65) + "px"
