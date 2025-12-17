@@ -185,7 +185,7 @@ class LGUtilityCounterCard extends HTMLElement {
 				display: inline-block;
 				position: absolute;
 				top: 0;
-				width: 30px;
+				/*width: 30px;*/
 				height: 39px;
 				background-color: #888;
 				line-height: 39px;
