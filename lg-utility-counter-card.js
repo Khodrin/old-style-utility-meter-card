@@ -166,7 +166,7 @@ class LGUtilityCounterCard extends HTMLElement {
 				height: 39px;
 				background-color: #F02000;
 				line-height: 32px;
-				left: 148px;
+				/*left: 148px;*/
 			}
 
 
@@ -178,23 +178,9 @@ class LGUtilityCounterCard extends HTMLElement {
 				height: 39px;
 				background-color: #888;
 				line-height: 32px;
-				left: 194px;
+				/*left: 194px;*/
 			}
-
-
-			.lg-utility-counter-digit-span {
-				position: relative;
-				width: 18px;
-				height: 26px;
-				top: 7px;
-				margin-left: 5px;
-				display: inline-block;
-			}
-
-			.lg-utility-counter-digit-span:first-child {
-				margin-left: 10px;
-			}
-        `
+       `
     }
 
     doCard() {
@@ -280,7 +266,7 @@ class LGUtilityCounterCard extends HTMLElement {
 			for (var d = total_digits; d < 15; d++) {
 				this._elements.digit[d].style.display = "none";
 			}
-			this._elements.redbg.style.left = 28 * this._config.digits_number;
+			this._elements.redbg.style.left = 28 * this._config.digits_number + "px"
             this._elements.error.classList.add("lguc-error--hidden");
             //this._elements.dl.classList.remove("lguc-dl--hidden");
         }
