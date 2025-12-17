@@ -173,7 +173,7 @@ class LGUtilityCounterCard extends HTMLElement {
 				display: inline-block;
 				position: absolute;
 				top: 0;
-				width: 60px;
+				/*width: 60px;*/
 				height: 39px;
 				background-color: #F02000;
 				line-height: 32px;
@@ -283,6 +283,7 @@ class LGUtilityCounterCard extends HTMLElement {
 				this._elements.digit_window[d].style.display = "none";
 			}
 			this._elements.redbg.style.left = ((30 * this._config.digits_number) + 5) + "px"
+			this._elements.redbg.style.width = (30 * this._config.decimals_number) + "px"
 			this._elements.greybg.style.left = ((30 * this._config.digits_number) + 65) + "px"
             this._elements.error.classList.add("lguc-error--hidden");
             //this._elements.dl.classList.remove("lguc-dl--hidden");
