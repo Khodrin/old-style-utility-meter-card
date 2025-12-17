@@ -274,10 +274,10 @@ class LGUtilityCounterCard extends HTMLElement {
 			var cntr_val = this.getState().state;
 			console.log("1: " + cntr_val);
 
-			var cntr_str_left = String(parseInt(cntr_val)).padStart(total_digits_left, '0');
-			cntr_str_left = cntr_str_left.substring(cntr_str_left.length - total_digits_left, total_digits_left);
+			var cntr_str_left = String(parseInt(cntr_val)).padStart(total_digits_left, '0');	//add leading zeros
+			cntr_str_left = cntr_str_left.slice(-total_digits_left);		// cut the beginning of the string if it's longer than required number of digits
 			console.log("2: " + String(cntr_val - parseInt(cntr_val)));
-			var cntr_str_right = String(cntr_val - parseInt(cntr_val)).substring(2, total_digits_right).padEnd(total_digits_right, '0');
+			var cntr_str_right = String(cntr_val - parseInt(cntr_val)).padEnd(total_digits_right, '0').slice(-total_digits_right);
 			
 			var cntr_str = cntr_str_left + cntr_str_right;
 			console.log(cntr_str_left);
