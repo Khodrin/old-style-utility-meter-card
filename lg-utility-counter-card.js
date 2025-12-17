@@ -347,7 +347,7 @@ class LGUtilityCounterCard extends HTMLElement {
         if (schema.name === "icon") return "Special Icon";
 		if (schema.name === "unit") {
 			//const unitOfMeasurement = this.getState().attributes.unit_of_measurement;
-			unitOfMeasurement = "kWh";
+			const unitOfMeasurement = "kWh";
 			return unitOfMeasurement;
 		}
         return undefined;
