@@ -269,31 +269,32 @@ class LGUtilityCounterCard extends HTMLElement {
 
 			var cntr_val = this.getState().state;
 			
-			var total_digits_left = this._config.digits_number;
-			var total_digits_right = this._config.decimals_number;
+			var digits_left = this._config.digits_number;
+			var digits_right = this._config.decimals_number;
 
-			if (total_digits_left == 0) {	//auto
-				total_digits_left = String(parseInt(cntr_val)).length;
-				if (total_digits_left > 10) {total_digits_left = 10;}
+			if (digits_left == 0) {	//auto
+				digits_left = String(parseInt(cntr_val)).length;
+				if (digits_left > 10) {digits_left = 10;}
 			}
 
-			if (total_digits_right == 0) {	//auto
-				const defaultPrecision = this.getState().attributes.precision;
+			if (digits_right == 0) {	//auto
+/*				const defaultPrecision = this.getState().attributes.precision;
 				console.log(defaultPrecision);
 
 				var attrs = this.getState().attributes;
 				for (var ix = 0; ix < attrs.length; ix++) {
 					console.log(ix + ": " + attrs[ix]);
 				}
-				//total_digits_right = String(parseInt(cntr_val)).length;
-				if (total_digits_right > 5) {total_digits_right = 5;}
+*/
+				digits_right = String(cntr_val - parseInt(cntr_val)).slice(2, 2 + 5).length;
+				if (digits_right > 5) {digits_right = 5;}
 			}
 			
-			var total_digits = total_digits_left + total_digits_right;
+			var total_digits = digits_left + digits_right;
 			
-			var cntr_str_left = String(parseInt(cntr_val)).padStart(total_digits_left, '0');	//add leading zeros
-			cntr_str_left = cntr_str_left.slice(-total_digits_left);		// cut the beginning of the string if it's longer than required number of digits
-			var cntr_str_right = String(cntr_val - parseInt(cntr_val)).slice(2, 2 + total_digits_right).padEnd(total_digits_right, '0');
+			var cntr_str_left = String(parseInt(cntr_val)).padStart(digits_left, '0');	//add leading zeros
+			cntr_str_left = cntr_str_left.slice(-digits_left);		// cut the beginning of the string if it's longer than required number of digits
+			var cntr_str_right = String(cntr_val - parseInt(cntr_val)).slice(2, 2 + digits_right).padEnd(digits_right, '0');
 			
 			var cntr_str = cntr_str_left + cntr_str_right;
 			var dig_val;
@@ -307,9 +308,9 @@ class LGUtilityCounterCard extends HTMLElement {
 			for (var d = total_digits; d < 15; d++) {
 				this._elements.digit_window[d].style.display = "none";
 			}
-			this._elements.redbg.style.left = ((30 * this._config.digits_number) + 5) + "px";
-			this._elements.redbg.style.width = (30 * this._config.decimals_number) + "px";
-			this._elements.greybg.style.left = ((30 * this._config.digits_number) + 5 + (30 * this._config.decimals_number)) + "px";
+			this._elements.redbg.style.left = ((30 * digits_left) + 5) + "px";
+			this._elements.redbg.style.width = (30 * digits_right) + "px";
+			this._elements.greybg.style.left = ((30 * digits_left) + 5 + (30 * digits_right)) + "px";
 			const unitOfMeasurement = this.getState().attributes.unit_of_measurement;
 			this._elements.greybg.innerHTML = unitOfMeasurement;
 			
@@ -347,6 +348,7 @@ class LGUtilityCounterCard extends HTMLElement {
         },
         { name: "unit", selector: { text: {} } },
         { name: "theme", selector: { theme: {} } },
+		{ name: "attr", selector: { attribute: { entity_id: "sensor.kws_306wf_energy"} } },
       ],
       computeLabel: (schema) => {
         if (schema.name === "icon") return "Special Icon";
