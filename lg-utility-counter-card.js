@@ -271,9 +271,9 @@ class LGUtilityCounterCard extends HTMLElement {
             }*/
             //this._elements.value.textContent = this.getState().state;
 
-			var cntr_val = this.getState().state;
+			var cntr_val = parseFloat(this.getState().state);
 			if (isNumeric(this._config.offset)) {
-				cntr_val += this._config.offset;
+				cntr_val += parseFloat(this._config.offset);
 			}
 			var digits_left = this._config.digits_number;
 			var digits_right = this._config.decimals_number;
@@ -316,7 +316,7 @@ class LGUtilityCounterCard extends HTMLElement {
 			this._elements.greybg.style.left = ((30 * digits_left) + 5 + (30 * digits_right)) + "px";
 			
 			var unitOfMeasurement = this.getState().attributes.unit_of_measurement;
-			if (String(this._config.unit).length > 0) {		//if unit is configured in Card's config, use it instead of entity's unit_of_measurement
+			if (this._config.unit != undefined && String(this._config.unit).length > 0) {		//if unit is configured in Card's config, use it instead of entity's unit_of_measurement
 				unitOfMeasurement = this._config.unit;
 			}
 			this._elements.greybg.innerHTML = unitOfMeasurement;
