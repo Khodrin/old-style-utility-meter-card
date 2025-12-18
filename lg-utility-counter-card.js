@@ -440,9 +440,9 @@ class LGUtilityCounterCard extends HTMLElement {
       computeHelper: (schema) => {
         switch (schema.name) {
           case "entity":
-            return "This text describes the function of the entity selector";
+            return "Choose entity to show on meter";
           case "unit":
-            return "The unit of measurement for this card. (0 = hide unit)";
+            return "The unit of measurement for this card. If not filled, unit is taken from selected entity. (0 = hide unit)";
 		  case "digits_number":
             return "The number of digits to the left of decimal point. (0 - 10, 0 = auto)";
 		  case "decimals_number":
