@@ -386,7 +386,8 @@ class LGUtilityCounterCard extends HTMLElement {
 			}
 
 			if (this._config.plate_color != undefined) {
-				this._elements.main_div.style.background-color = this._config.plate_color;
+				//this._elements.main_div.style.background-color = this._config.plate_color;
+				console.log(this._config.plate_color);
 			}
 			
             this._elements.error.classList.add("lguc-error--hidden");
