@@ -155,7 +155,7 @@ class LGUtilityCounterCard extends HTMLElement {
 				position: relative;
 				width: 18px;
 				height: 26px;
-				top: 6px;
+				/*top: 6px;*/
 				margin-left: 10px;
 				/*display: inline-block;*/
 				color: white;
@@ -374,6 +374,7 @@ class LGUtilityCounterCard extends HTMLElement {
 			} else {
 				this._elements.dp.innerHTML = ",";
 			}
+			this._elements.dp.style.left = ((30 * digits_left) + 3) + "px";
 
 			if  (this._config.icon != undefined) {
 				this._elements.icon.setAttribute("icon", this._config.icon);
