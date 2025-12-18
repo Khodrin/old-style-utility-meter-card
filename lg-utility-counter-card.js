@@ -348,6 +348,7 @@ class LGUtilityCounterCard extends HTMLElement {
 				dig_val = cntr_str.substring(d, d + 1);
 				this._elements.digit[d].innerHTML = dig_val;
 				this._elements.digit_window[d].style.display = "inline-block";
+				this._elements.digit_window[d].style.top = Math.round(Math.random() * 2 - 1) + "px";
 			}
 			//hide the rest of digits
 			for (var d = total_digits; d < 15; d++) {
