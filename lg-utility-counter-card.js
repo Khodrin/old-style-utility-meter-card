@@ -218,7 +218,9 @@ class LGUtilityCounterCard extends HTMLElement {
 			<div class="card-content">
 				<p class="lguc-error lguc-error--hidden">
 				<br><br>
-				<ha-icon id="lg-utility-counter-icon" icon="mdi:flash"></ha-icon>
+				<div>
+					<ha-icon icon="mdi:flash" id="lg-utility-counter-icon"></ha-icon>
+				</div>
 				<div class="lg-utility-counter-main-div">
 					<div class="lg-utility-counter-red-bg">
 					</div><div class="lg-utility-counter-grey-bg"></div>`;
