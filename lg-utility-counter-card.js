@@ -374,7 +374,7 @@ class LGUtilityCounterCard extends HTMLElement {
 			} else {
 				this._elements.dp.innerHTML = ",";
 			}
-			this._elements.dp.style.left = ((30 * digits_left) + 3) + "px";
+			this._elements.dp.style.left = ((30 * digits_left) - 1) + "px";
 
 			if  (this._config.icon != undefined) {
 				this._elements.icon.setAttribute("icon", this._config.icon);
