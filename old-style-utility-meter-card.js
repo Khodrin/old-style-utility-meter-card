@@ -9,8 +9,10 @@ function loadCSS(url, id) {
 
 function unloadCSS(id) {
 	//remove-styleSheet
-	var css = document.getElementById(id);
-	css.parentNode.removeChild(css);
+	if (document.getElementById(id)) {
+		var css = document.getElementById(id);
+		css.parentNode.removeChild(css);
+	}
 }
 
 function isNumeric(n) {
