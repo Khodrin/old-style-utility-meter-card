@@ -469,7 +469,9 @@ class OldStyleUtilityMeterCard extends HTMLElement {
         }
 		
 		if (config.colors == 'User defined') {
-			config.plate_color.disabled = true;
+			//config.plate_color.disabled = true;
+			var w = getSchIndex(sch, 'plate_color');
+			sch.schema[w].disabled = true;
 		}
       },
     };
@@ -479,7 +481,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 
 }
 
-/*
+
 function getSchIndex(sch, name) {
 	for (var i = 0; i < sch.schema.length; i++) {
 		if (sch.schema[i].name == name) {
@@ -488,7 +490,7 @@ function getSchIndex(sch, name) {
 		}
 	}
 }
-*/
+
 
 customElements.define("old-style-utility-meter-card", OldStyleUtilityMeterCard);
 
