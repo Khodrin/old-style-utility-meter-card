@@ -111,6 +111,10 @@ class OldStyleUtilityMeterCard extends HTMLElement {
             .osumc-error--hidden {
                 display: none;
             }
+			
+			.osumc-name {
+				margin-bottom: 10px;
+			}
             
 			.osumc-main-div {
 				display: inline-block;
@@ -123,7 +127,6 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				position: relative;
 			}
 
-			
 			.osumc-icon-div {
 				display: inline-block;
 				vertical-align: middle;
