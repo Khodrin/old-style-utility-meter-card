@@ -405,7 +405,8 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 					<div class="osumc-icon-div">
 						<ha-icon icon="mdi:flash" id="osumc-icon"></ha-icon>
 					</div>
-					<div class="osumc-main-div">`;
+					<div class="osumc-main-div">
+						`;
 			for (var d = 0; d < 15; d++) {
 				html_content += `<span class="osumc-digit-window">
 							<span class="osumc-digit-text" id="osumc-digit-` + d + `">0</span>
