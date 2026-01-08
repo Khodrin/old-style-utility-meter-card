@@ -146,7 +146,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				background-color: rgb(16, 16, 16);
 				height: 39px;
 				line-height: 39px;
-				width: 194px;
+				width: auto;
 				white-space: nowrap;
 				position: relative;
 			}
@@ -412,8 +412,8 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 						</span>`;
 			}
 			html_content += `
-						<div class="osumc-red-bg">
-						</div><div class="osumc-grey-bg"></div>
+						<div class="osumc-red-bg"></div>
+						<div class="osumc-grey-bg"></div>
 						<div id="osumc-decimal-point"></div>
 						<div class="osumc-line_cont">
 							<div class="osumc-line"></div>
