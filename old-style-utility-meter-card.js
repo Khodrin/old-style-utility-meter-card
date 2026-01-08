@@ -122,7 +122,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
         this._elements.style = document.createElement("style");
         this._elements.style.textContent = `
 			.card-content {
-				background-color: #888;
+				/*background-color: #888;*/
 			}
 			
             .osumc-error {
@@ -405,15 +405,15 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 					<div class="osumc-icon-div">
 						<ha-icon icon="mdi:flash" id="osumc-icon"></ha-icon>
 					</div>
-					<div class="osumc-main-div">
-						<div class="osumc-red-bg">
-						</div><div class="osumc-grey-bg"></div>`;
+					<div class="osumc-main-div">`;
 			for (var d = 0; d < 15; d++) {
 				html_content += `<span class="osumc-digit-window">
 							<span class="osumc-digit-text" id="osumc-digit-` + d + `">0</span>
 						</span>`;
 			}
 			html_content += `
+						<div class="osumc-red-bg">
+						</div><div class="osumc-grey-bg"></div>
 						<div id="osumc-decimal-point"></div>
 						<div class="osumc-line_cont">
 							<div class="osumc-line"></div>
