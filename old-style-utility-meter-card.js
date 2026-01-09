@@ -754,10 +754,10 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				
 				//set custom marker width
 				if (this._config.marker_width != undefined && this._config.marker_width != '') {
-					this._elements.wheel_marker.style.width = this._config.marker_width;
+					this._elements.wheel_marker.style.width = this._config.marker_width + "px";
 					//also set the variable used for calculation in animation
 					var r = document.querySelector(':root');
-					r.style.setProperty('--marker-width', this._config.marker_width);
+					r.style.setProperty('--marker-width', this._config.marker_width + "px");
 				}
 
 				
