@@ -229,17 +229,18 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 
 			#osumc-decimal-point {
 				position: absolute;
-				top: 1px;
+				top: -1px;
 				display: inline-block;
 				line-height: 39px;
 				font-size: 36px;
 				font-weight: bold;
 				font-family: Carlito, sans-serif;
+				z-index: 1;
 			}
 			
 			.osumc-line_cont {
 				position: absolute;
-				top: 5px;
+				top: 4px;
 				width: 100%;
 				z-index: 2;
 			}
@@ -563,10 +564,10 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				this._elements.digit[d].innerHTML = dig_val;
 				this._elements.digit_window[d].style.display = "inline-block";
 				if (random_pos) {
-					this._elements.digit_window[d].style.top = Math.round(Math.random() * 2 - 1) + "px";
+					this._elements.digit[d].style.top = Math.round(Math.random() * 2 - 1) + "px";
 				}
 				if (!this._config.random_shift) {
-					this._elements.digit_window[d].style.top = 0;
+					this._elements.digit[d].style.top = 0;
 				}
 				
 				//if markings are enabled, make the last window wider
@@ -584,10 +585,11 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 			}
 			//this._elements.redbg.style.left = ((30 * digits_left) + 5) + "px";
 			this._elements.redbg.style.width = (30 * digits_right + (markings_offset * (digits_right > 0))) + "px";
-
+			this._elements.redbg.style.left = "-66px";
+			this._elements.greybg.style.left = "-66px";
 			//this._elements.greybg.style.left = ((30 * digits_left) + 5 + (30 * digits_right) + markings_offset) + "px";
 			
-			this._elements.markings.style.left = ((30 * total_digits) - 14) + "px";
+			//this._elements.markings.style.left = ((30 * total_digits) - 14) + "px";
 			
 			
 			if (this._config.show_name) {
