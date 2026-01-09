@@ -558,7 +558,9 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				random_pos = true;
 				this._elements.lu.innerHTML = ts;
 			}
-				
+			
+			var markings_offset = 0;
+			
 			for (var d = 0; d < total_digits; d++) {
 				dig_val = cntr_str.substring(d, d + 1);
 				this._elements.digit[d].innerHTML = dig_val;
@@ -571,7 +573,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				}
 				
 				//if markings are enabled, make the last window wider
-				var markings_offset = 0;
+				//markings_offset = 0;
 				if (this._config.markings && d == (total_digits - 1)) {
 					this._elements.digit_window[d].style.width = "24px";
 					markings_offset = 6;	//move other elements by this number of pixels to the right
@@ -585,7 +587,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 			}
 			//this._elements.redbg.style.left = ((30 * digits_left) + 5) + "px";
 			this._elements.redbg.style.width = (30 * digits_right + (markings_offset * (digits_right > 0))) + "px";
-			this._elements.redbg.style.left = ((-30 * digits_right - markings_offset)); //"-64px";
+			this._elements.redbg.style.left = ((-30 * digits_right) + 5 - markings_offset); //"-61px";
 			//this._elements.greybg.style.left = "-66px";
 			//this._elements.greybg.style.left = ((30 * digits_left) + 5 + (30 * digits_right) + markings_offset) + "px";
 			
