@@ -80,6 +80,8 @@ class OldStyleUtilityMeterCard extends HTMLElement {
     }
 
     getState() {
+		console.log(this._config.power_entity);
+		console.log(this._hass.states[this._config.power_entity]);
         return this._hass.states[this.getEntityID()];
     }
 
@@ -791,12 +793,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
     }*/
 
 	static getConfigForm() {
-	/*var col_disabled = false;
-	if (this._config.colors != undefined) {
-		if (this._config.colors == 'User defined') {
-			col_disabled = true;
-		}
-	}*/
+	
     var sch = {
       schema: [
         { name: "entity", required: true, selector: { entity: {} } },
