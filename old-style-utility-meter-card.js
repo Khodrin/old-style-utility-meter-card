@@ -367,6 +367,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				display: inline-block;
 				position: relative;
 				top: 4px;
+				overflow: clip;
 			}
 
 			.osumc-wheel-marker {
@@ -381,20 +382,19 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				animation-duration: 2s;
 				animation-iteration-count: infinite;
 				animation-timing-function: linear;
-				
+				--marker-width: 30px;
 			}
 
 			@keyframes osumc-wheel-animation {
-				--marker-width: 30px;
-				0% {left: -2%; width: calc(var(--marker-width) * 10/30); margin-left: -5px; opacity: 0.1}
-				7% {left: 7%; width: calc(var(--marker-width) * 22/30); margin-left: -10px; opacity: 0.4}
-				13% {left: 20%; width: calc(var(--marker-width) * 27/30); margin-left: -13px;}
-				19% {left: 36%; width: calc(var(--marker-width) * 29/30); margin-left: -14px;}
+				0% {left: -2%; width: calc(var(--marker-width) * (10/30)); margin-left: -5px; opacity: 0.1}
+				7% {left: 7%; width: calc(var(--marker-width) * (22/30)); margin-left: -10px; opacity: 0.4}
+				13% {left: 20%; width: calc(var(--marker-width) * (27/30)); margin-left: -13px;}
+				19% {left: 36%; width: calc(var(--marker-width) * (29/30)); margin-left: -14px;}
 				25% {left: 50%; width: var(--marker-width); margin-left: -15px; opacity: 1}
-				31% {left: 64%; width: calc(var(--marker-width) * 29/30); margin-left: -14px;}
-				37% {left: 80%; width: calc(var(--marker-width) * 27/30); margin-left: -13px;}
-				43% {left: 93%; width: calc(var(--marker-width) * 22/30); margin-left: -11px; opacity: 0.4}
-				50% {left: 102%; width: calc(var(--marker-width) * 12/30); margin-left: -6px; opacity: 0.1}
+				31% {left: 64%; width: calc(var(--marker-width) * (29/30)); margin-left: -14px;}
+				37% {left: 80%; width: calc(var(--marker-width) * (27/30)); margin-left: -13px;}
+				43% {left: 93%; width: calc(var(--marker-width) * (22/30)); margin-left: -11px; opacity: 0.4}
+				50% {left: 102%; width: calc(var(--marker-width) * (12/30)); margin-left: -6px; opacity: 0.1}
 				51% {opacity: 0}
 				100% {opacity: 0;}
 			}
