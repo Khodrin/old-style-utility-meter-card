@@ -366,11 +366,11 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				width: 100%;
 				display: inline-block;
 				position: relative;
-				top: 3px;
+				top: 4px;
 			}
 
 			.osumc-wheel-marker {
-				background-color: red;
+				background-color: #000;
 				width: 30px;
 				margin-left: -15px;
 				height: 100%;
@@ -385,15 +385,15 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 			}
 
 			@keyframes osumc-wheel-animation {
-				0% {left: -2%; width: 10px; margin-left: -5px; opacity: 0.3}
-				7% {left: 7%; width: 22px; margin-left: -10px; opacity: 0.6}
+				0% {left: -2%; width: 10px; margin-left: -5px; opacity: 0.1}
+				7% {left: 7%; width: 22px; margin-left: -10px; opacity: 0.4}
 				13% {left: 20%; width: 27px; margin-left: -13px;}
 				19% {left: 36%; width: 29px; margin-left: -14px;}
 				25% {left: 50%; width: 30px; margin-left: -15px; opacity: 1}
 				31% {left: 64%; width: 29px; margin-left: -14px;}
 				37% {left: 80%; width: 27px; margin-left: -13px;}
-				43% {left: 93%; width: 22px; margin-left: -11px; opacity: 0.6}
-				50% {left: 102%; width: 12px; margin-left: -6px; opacity: 0.3}
+				43% {left: 93%; width: 22px; margin-left: -11px; opacity: 0.4}
+				50% {left: 102%; width: 12px; margin-left: -6px; opacity: 0.1}
 				51% {opacity: 0}
 				100% {opacity: 0;}
 			}
@@ -591,7 +591,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 			//this._elements.redbg.style.left = ((30 * digits_left) + 5) + "px";
 			this._elements.redbg.style.width = (30 * digits_right + (markings_offset * (digits_right > 0))) + "px";
 			this._elements.redbg.style.left = ((-30 * digits_right) + 5 - markings_offset) + "px"; //"-61px";
-			this._elements.greybg.style.left = (((-30 * digits_right) + 5 - markings_offset) + (30 * digits_right + (markings_offset * (digits_right > 0)))) + "66px";
+			this._elements.greybg.style.left = (((-30 * digits_right) + 5 - markings_offset) + (30 * digits_right + (markings_offset * (digits_right > 0)))) + "px";
 			//this._elements.greybg.style.left = ((30 * digits_left) + 5 + (30 * digits_right) + markings_offset) + "px";
 			
 			this._elements.markings.style.left = ((30 * total_digits) - 13) + "px";
