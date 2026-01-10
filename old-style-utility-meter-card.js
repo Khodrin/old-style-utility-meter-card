@@ -80,6 +80,15 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 
 	onClicked() {
 		//this.doToggle();
+		const event = new CustomEvent("hass-action", {
+			detail: {
+				config: this._config,
+				action: "tap",
+			},
+			bubbles: true,
+			composed: true,
+		});
+		this.dispatchEvent(event);
 	}
 	
 	
@@ -506,7 +515,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 	}
 
 	doListen() {
-		//this._elements.dl.addEventListener("click", this.onClicked.bind(this), false);
+		this._elements.card_content.addEventListener("click", this.onClicked.bind(this), false);
 	}
 
 	doUpdateConfig() {
@@ -654,10 +663,11 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 			}
 			
 			
-			//counter_div.width = icon_div.width + integer_div.width + redbg.width + markings_offset + greybg.width
+			//counter_div.width = icon_div.width + integer_div.width + redbg.width + markings_offset + greybg.width + greybg.padding (2x6)
 			var greybg_w = this._elements.greybg.getBoundingClientRect().width;
-			
+			if (greybg_w > 0) {greybg_w += 12;}	//add padding width
 			this._elements.counter_div.style.width = icon_w + (30 * digits_left) + (30 * digits_right + (markings_offset * (digits_right > 0))) + greybg_w + "px";
+			//32 + 150 + 60 + 6 
 			
 			
 
