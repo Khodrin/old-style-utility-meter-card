@@ -47,7 +47,18 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 	}
 
 	setConfig(config) {
-		this._config = config;
+		//this._config = config;
+		
+		this._config = {
+			tap_action: {
+				action: "more-info"
+			},
+			hold_action: {
+				action: "more-info",
+			},
+			...config,
+			};
+		
 		if (!this._isAttached) {
 			this.doAttach();
 			this.doQueryElements();
@@ -57,7 +68,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 		this.doCheckConfig();
 		this.doUpdateConfig();
 	}
-
+	
 	set hass(hass) {
 		this._hass = hass;
 		this.doUpdateHass()
@@ -70,7 +81,8 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 	onClicked() {
 		//this.doToggle();
 	}
-
+	
+	
 	getHeader() {
 		return this._config.header;
 	}
@@ -165,7 +177,8 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				vertical-align: middle;
 				height: 39px;
 				line-height: 39px;
-				margin-right: 8px;
+				width: 32px;
+				text-align: left;
 			}
 			
 			
@@ -481,6 +494,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 		this._elements.redbg = card.querySelector(".osumc-red-bg");
 		this._elements.greybg = card.querySelector(".osumc-grey-bg");
 		this._elements.dp = card.querySelector("#osumc-decimal-point");
+		this._elements.icon_div = card.querySelector("#osumc-icon-div");
 		this._elements.icon = card.querySelector("#osumc-icon");
 		this._elements.markings = card.querySelector(".osumc-line_cont");
 
@@ -617,7 +631,22 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 			} else {
 				this._elements.name.style.display = "none";
 			}
+
+			var icon_w = 32;
+			if (this._config.icon != undefined) {
+				this._elements.icon.setAttribute("icon", this._config.icon);
+				this._elements.icon_div.style.display = "inline-block";
+			} else {
+				this._elements.icon_div.style.display = "none";
+				icon_w = 0;
+			}
 			
+			
+			//counter_div.width = icon_div.width + integer_div.width + redbg.width + markings_offset + greybg.width
+			var greybg_w = element.getBoundingClientRect().width;
+			if 
+			
+			this._elements.counter_div.style.width = icon_w + (30 * digits_left) + (30 * digits_right + (markings_offset * (digits_right > 0))) + greybg_w + "px";
 			
 			var unitOfMeasurement = this.getState().attributes.unit_of_measurement;
 			if (this._config.unit != undefined && String(this._config.unit).length > 0) {		//if unit is configured in Card's config, use it instead of entity's unit_of_measurement
@@ -645,14 +674,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				this._elements.dp.style.display = "inline-block";
 			}
 			
-			//if this._elements.redbg.style.width = "0px";
-
-			if  (this._config.icon != undefined) {
-				this._elements.icon.setAttribute("icon", this._config.icon);
-				this._elements.icon.style.display = "inline-block";
-			} else {
-				this._elements.icon.style.display = "none";
-			}
+			
 
 			if (this._config.plate_color != undefined && this._config.plate_color != '') {
 				this._elements.card_content.style.backgroundColor = this._config.plate_color;
