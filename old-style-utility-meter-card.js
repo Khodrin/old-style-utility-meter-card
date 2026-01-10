@@ -187,8 +187,8 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				vertical-align: middle;
 				height: 39px;
 				line-height: 39px;
-				width: 32px;
-				text-align: left;
+				width: 39px;
+				text-align: center;
 			}
 			
 			
@@ -444,8 +444,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				<div class="osumc-counter-div">
 					<div class="osumc-icon-div">
 						<ha-icon icon="mdi:flash" id="osumc-icon"></ha-icon>
-					</div>
-					<div class="osumc-integer-div">
+					</div><div class="osumc-integer-div">
 						`;
 			for (var d = 0; d < 15; d++) {
 				html_content += `<span class="osumc-digit-window">
@@ -642,7 +641,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 				this._elements.name.style.display = "none";
 			}
 
-			var icon_w = 32;
+			var icon_w = 39;
 			if (this._config.icon != undefined) {
 				this._elements.icon.setAttribute("icon", this._config.icon);
 				this._elements.icon_div.style.display = "inline-block";
@@ -668,8 +667,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 			var greybg_w = this._elements.greybg.getBoundingClientRect().width;
 			if (greybg_w > 0) {greybg_w += 12;}	//add padding width
 			this._elements.counter_div.style.width = icon_w + (30 * digits_left) + (30 * digits_right + (markings_offset * (digits_right > 0))) + greybg_w + "px";
-			//32 + 150 + 60 + 6 
-			
+	
 			
 
 			if (this._config.decimal_separator == "Point") {
@@ -817,12 +815,11 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 						if (power_val == 0 || !isNumeric(power_val) || !isNumeric(min_rot_time) || !isNumeric(max_rot_time) || !isNumeric(max_power)) {
 							this._elements.wheel_marker.style.animationDuration = 0;
 						} else {
+							if (power_val > max_power) {power_val = max_power;}
 							var calc_wheel_speed = (max_rot_time + min_rot_time * power_val / max_power) - (max_rot_time * power_val / max_power);
 							this._elements.wheel_marker.style.animationDuration = calc_wheel_speed + "s";
-							//console.log("Speed: " + calc_wheel_speed);
 						}
 					} else {
-						console.log("Invalid power entity");
 						this._elements.wheel_marker.style.removeProperty('animation-duration');
 					}
 				}
