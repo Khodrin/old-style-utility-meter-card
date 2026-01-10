@@ -1,7 +1,8 @@
 /*************************************************************
 *                                                            *
-*               Old Style Utility Meter Card                 *
-*                      by LuckyG3000                         *
+*                Old Style Utility Meter Card                *
+*                       by LuckyG3000                        *
+*                           v1.0.2                           *
 * https://github.com/LuckyG3000/old-style-utility-meter-card *
 *           GNU GENERAL PUBLIC LICENSE version 3.0           *
 *                                                            *
@@ -147,7 +148,7 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 			}
 			
 			.card-content {
-				/*background-color: #888;*/
+				cursor: pointer;
 			}
 
 			.osumc-error {
@@ -411,15 +412,15 @@ class OldStyleUtilityMeterCard extends HTMLElement {
 			}
 
 			@keyframes osumc-wheel-animation {
-				0% {left: -2%; width: calc(var(--marker-width) * (10/30)); margin-left: calc(var(--marker-width) * (-5/30)); opacity: 0.3;}
-				7% {left: 7%; width: calc(var(--marker-width) * (22/30)); margin-left: calc(var(--marker-width) * (-10/30)); opacity: 0.6;}
+				0% {left: -2%; width: calc(var(--marker-width) * (10/30)); margin-left: calc(var(--marker-width) * (-5/30)); opacity: 0.6;}
+				7% {left: 7%; width: calc(var(--marker-width) * (22/30)); margin-left: calc(var(--marker-width) * (-10/30)); opacity: 0.8;}
 				13% {left: 20%; width: calc(var(--marker-width) * (27/30)); margin-left: calc(var(--marker-width) * (-13/30));}
 				19% {left: 36%; width: calc(var(--marker-width) * (29/30)); margin-left: calc(var(--marker-width) * (-14/30));}
 				25% {left: 50%; width: var(--marker-width); margin-left: calc(var(--marker-width) * (-15/30)); opacity: 1}
 				31% {left: 64%; width: calc(var(--marker-width) * (29/30)); margin-left: calc(var(--marker-width) * (-14/30));}
 				37% {left: 80%; width: calc(var(--marker-width) * (27/30)); margin-left: calc(var(--marker-width) * (-13/30));}
-				43% {left: 93%; width: calc(var(--marker-width) * (22/30)); margin-left: calc(var(--marker-width) * (-11/30)); opacity: 0.6;}
-				50% {left: 102%; width: calc(var(--marker-width) * (12/30)); margin-left: calc(var(--marker-width) * (-6/30)); opacity: 0.3;}
+				43% {left: 93%; width: calc(var(--marker-width) * (22/30)); margin-left: calc(var(--marker-width) * (-11/30)); opacity: 0.8;}
+				50% {left: 102%; width: calc(var(--marker-width) * (12/30)); margin-left: calc(var(--marker-width) * (-6/30)); opacity: 0.6;}
 				51% {opacity: 0;}
 				100% {opacity: 0;}
 			}
