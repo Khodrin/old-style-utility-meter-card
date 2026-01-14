@@ -29,6 +29,7 @@ grid_options:
   columns: full
 whole_digit_number: 5
 decimal_digit_number: 2
+scale: 100
 decimal_separator: Comma
 icon: mdi:lightning-bolt
 random_shift: 2
